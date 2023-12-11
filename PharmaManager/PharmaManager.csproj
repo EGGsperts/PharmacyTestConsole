@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{76EE6E93-FA15-4504-BB5C-B5926944CC49}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PharmaManager</RootNamespace>
+    <AssemblyName>PharmaManager</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tables\Batches\AlgorithmBatch.cs" />
+    <Compile Include="Tables\Batches\Batch.cs" />
+    <Compile Include="Tables\Batches\IAlgorithmBatch.cs" />
+    <Compile Include="Tables\Batches\ViewBatches.cs" />
+    <Compile Include="Tables\IBaseAlgorithm.cs" />
+    <Compile Include="MainView.cs" />
+    <Compile Include="Tables\Pharmacys\AlgorithmPharmacy.cs" />
+    <Compile Include="Tables\Pharmacys\IAlgorithmPharmacy.cs" />
+    <Compile Include="Tables\Pharmacys\Pharmacy.cs" />
+    <Compile Include="Tables\Pharmacys\ViewPharmacy.cs" />
+    <Compile Include="Tables\Products\AlgorithmProduct.cs" />
+    <Compile Include="Tables\Products\IAlgorithmProduct.cs" />
+    <Compile Include="Tables\Products\Product.cs" />
+    <Compile Include="Tables\Products\ViewProducts.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Script\IScript.cs" />
+    <Compile Include="Script\Scripts.cs" />
+    <Compile Include="Script\ScriptExecutor.cs" />
+    <Compile Include="Tables\Storages\AlgorithmStorage.cs" />
+    <Compile Include="Tables\Storages\IAlgorithmStorage.cs" />
+    <Compile Include="Tables\Storages\Storage.cs" />
+    <Compile Include="Tables\Storages\ViewStorage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Script\CreateDB.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
